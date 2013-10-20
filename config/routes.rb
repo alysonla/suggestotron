@@ -1,5 +1,8 @@
 Suggestotron::Application.routes.draw do
-  resources :votes
+
+  post "/votes", :to => "votes#create", :as => "votes"
+
+  delete "/votes", :to => "votes#destroy", :as => "votes"
 
   resources :topics
 
