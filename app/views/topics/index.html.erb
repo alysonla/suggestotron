@@ -1,28 +1,47 @@
-<h1>Listing topics</h1>
+<link rel="stylesheet" href="app/assets/stylesheets/application.css"/>
+
+<h1>OctoShop</h1>
 
 <table style="width:100%">
   <tr>
-    <th><em>Halloween Costumes</em></th>
-    
-    <th><em>Ideas for 10.31.2013</em></strong></th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th><em>Item</em></th> 
+    <th><em>Description</em></strong></th>
+    <th><em># Taken</em></th>
+    <th><em>Size</em></th>
+    <th><em>Took One</em></th>
+    <th><em>J/k</em></th>
   </tr>
 
 <% @topics.each do |topic| %>
   <tr>
     <td><%= topic.title %></td>
     <td><%= topic.description %></td>
-    <td><%= pluralize(topic.votes.length, "vote") %></td>
+    <td><%= pluralize(topic.votes.length, "Shirts") %></td>
+    <td>
+      <fieldset>
+          <select name="Shirt Size">
+            <option>Select One</option>
+              <optgroup label="Womens">
+                <option>Small</option>
+                <option>Medium</option>
+                <option>Large</option>
+              </optgroup>
+              <optgroup label="Mens">
+                <option>Small</option>
+                <option>Medium</option>
+                <option>Large</option>
+                <option>Extra Large</option>
+              </optgroup>
+          </select>
+      </fieldset>
+    </td>
     <td><%= button_to '+1', votes_path(topic_id: topic.id),  method: :post %></td>
-    <td><%= link_to 'Show', topic %></td>
-    <td><%= link_to 'Edit', edit_topic_path(topic) %></td>
-    <td><%= link_to 'Destroy', topic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= button_to '-1', votes_path(topic_id: topic.id),  method: :delete %></td>
+    <td id="delete"><%= link_to 'Edit', topic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Topic', new_topic_path %>
+<%= link_to 'New Shirt', new_topic_path %>
