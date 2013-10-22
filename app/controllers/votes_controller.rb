@@ -24,8 +24,8 @@ class VotesController < ApplicationController
   
   def destroy
     topic = Topic.find(params[:topic_id])
-    vote = topic.votes.find(params[:id])
-    vote.destroy!
+    vote = topic.votes.pop
+    vote.destroy
     redirect_to(topics_path)
   end
 end

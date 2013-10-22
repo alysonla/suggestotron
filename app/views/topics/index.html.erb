@@ -4,20 +4,22 @@
 
 <table style="width:100%">
   <tr>
+<!--     <th><em></em></th> -->
     <th><em>Item</em></th> 
     <th><em>Description</em></strong></th>
     <th><em># Taken</em></th>
-    <th><em>Size</em></th>
+    <!-- <th><em>Size</em></th> -->
     <th><em>Took One</em></th>
     <th><em>J/k</em></th>
   </tr>
 
 <% @topics.each do |topic| %>
   <tr>
+<!--     <td><img style="width:150px;" src="http://i.imgur.com/i5YZEdq.png?1"></td> -->
     <td><%= topic.title %></td>
     <td><%= topic.description %></td>
     <td><%= pluralize(topic.votes.length, "Shirts") %></td>
-    <td>
+    <!-- <td>
       <fieldset>
           <select name="Shirt Size">
             <option>Select One</option>
@@ -34,7 +36,7 @@
               </optgroup>
           </select>
       </fieldset>
-    </td>
+    </td> -->
     <td><%= button_to '+1', votes_path(topic_id: topic.id),  method: :post %></td>
     <td><%= button_to '-1', votes_path(topic_id: topic.id),  method: :delete %></td>
     <td id="delete"><%= link_to 'Edit', topic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
