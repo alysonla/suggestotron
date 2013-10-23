@@ -56,6 +56,12 @@ module Suggestotron
     # Enable the asset pipeline
     config.assets.enabled = true
 
+    #wfarr told me to put this here so the asset pipeline would work with a Rails 3 app :) 
+    #the reason being that on heroku apps connect to the database using an environment variable
+    #but the way the heroku buildpack works for rails 3 and precompiling assets, the environment variables aren't available to the app when assets go to precompile
+    #so this disables the full app environment loading to precompile assets
+    config.assets.initialize_on_precompile = false
+
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
   end

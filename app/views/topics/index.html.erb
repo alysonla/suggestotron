@@ -4,7 +4,7 @@
 
 <table style="width:100%">
   <tr>
-<!--     <th><em></em></th> -->
+    <th><em></em></th>
     <th><em>Item</em></th> 
     <th><em>Description</em></strong></th>
     <th><em># Taken</em></th>
@@ -15,7 +15,7 @@
 
 <% @topics.each do |topic| %>
   <tr>
-<!--     <td><img style="width:150px;" src="http://i.imgur.com/i5YZEdq.png?1"></td> -->
+    <td><img style="width:150px;" src="http://i.imgur.com/i5YZEdq.png?1"></td>
     <td><%= topic.title %></td>
     <td><%= topic.description %></td>
     <td><%= pluralize(topic.votes.length, "Shirts") %></td>
